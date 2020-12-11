@@ -102,6 +102,7 @@ exports.logout = (req, res) => {
 };
 
 exports.signupUser = catchAsync(async (req, res, next) => {
+  console.log('req.body:', req.body)
   let existingUser = await User.findOne({ email: req.body.email });
   if (existingUser) {
     const error = new AppError('Email already in use.', 422);
