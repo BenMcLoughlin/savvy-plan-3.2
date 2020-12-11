@@ -1,0 +1,138 @@
+{
+    "ui_reducer": {
+        "colorIndex": 0,
+        "dualSelectValue": true,
+        "newStream": false,
+        "progress": 7,
+        "selectedAccount": "tfsa",
+        "selectedId": "dummy",
+        "selectedScenario": 1,
+        "selectedPage": "savings",
+        "selectedUser": "user1",
+        "scenarios": {
+            "1": "basic"
+        }
+    },
+    "stream_reducer": {
+        "user1Income_191087": {
+            "amortization": 0,
+            "color": "#72929B",
+            "cppEligible": true,
+            "createdAt": 1602876768319,
+            "currentValue": 0,
+            "flow": "in",
+            "in": {
+                "1": {
+                    "start": 2020,
+                    "value": 0,
+                    "end": 2030
+                }
+            },
+            "id": "user1Income_191087",
+            "owner": "user1",
+            "out": {
+                "1": {
+                    "start": 2020,
+                    "value": 0,
+                    "end": 2030
+                }
+            },
+            "name": "",
+            "payment": 0,
+            "streamType": "income",
+            "rate": 0,
+            "reg": "taxable",
+            "taxable": true,
+            "scenarios": 0,
+            "startValue": 0,
+            "startYear": 0,
+            "periodIn": 1,
+            "periodOut": 1
+        },
+        "user1Income_946079": {
+            "amortization": 0,
+            "color": "#B0CFE3",
+            "cppEligible": true,
+            "createdAt": 1602876799189,
+            "currentValue": 0,
+            "flow": "in",
+            "in": {
+                "1": {
+                    "start": 2019,
+                    "value": 71000,
+                    "end": 2040
+                },
+                "2": {
+                    "start": 2040,
+                    "value": 52000,
+                    "end": 2045
+                }
+            },
+            "id": "user1Income_946079",
+            "owner": "user1",
+            "out": {
+                "1": {
+                    "start": 2020,
+                    "value": 0,
+                    "end": 2030
+                }
+            },
+            "name": "Rental Income",
+            "payment": 0,
+            "streamType": "income",
+            "rate": 0,
+            "reg": "Business Income",
+            "taxable": true,
+            "scenarios": 0,
+            "startValue": 0,
+            "startYear": 0,
+            "periodIn": 1,
+            "periodOut": 1,
+            "period": 2
+        }
+    },
+    ,
+    "user_reducer": {
+        "desiredRetirementIncome": 0,
+        "hasChildrenStatus": "",
+        "hasChildren": true,
+        "inflationRate": 2,
+        "isMarried": true,
+        "maritalStatus": "married",
+        "MER": 2,
+        "numberOfChildren": 1,
+        "province": "British Columbia",
+        "rate1": 6,
+        "rate2": 4.5,
+        "user1": {
+            "birthYear": 1990,
+            "cppStartAge": 65,
+            "firstName": "",
+            "gender": "male",
+            "lastName": "",
+            "lifeSpan": 95,
+            "oasStartAge": 65
+        },
+        "user2": {
+            "birthYear": 1990,
+            "cppStartAge": 65,
+            "firstName": "",
+            "gender": "female",
+            "lastName": "",
+            "lifeSpan": 95,
+            "oasStartAge": 65
+        }
+    },
+    "auth_reducer": {
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmOWM4MGE3YmJkNTA0NjhhNjI0N2Q3YSIsImlhdCI6MTYwNDE2NzUwNiwiZXhwIjoxNjA1ODk1NTA2fQ.nCCvphxEoCa9yzUCOepSYwMf-UJaJ_W37htoygbITcM",
+        "isLoading": false,
+        "errors": {
+            "email": null,
+            "password": null
+        }
+    },
+    "_persist": {
+        "version": -1,
+        "rehydrated": true
+    }
+}
