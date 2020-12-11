@@ -23,7 +23,7 @@ export const nestEgg = (allData, colors, chartName, graph, y, x) => {
       tooltip.transition().duration(1500).style("opacity", 0)
     })
     .on("mousemove", () => {
-      tooltip
+      //tooltip
         // .style("top", d3.event.layerY - 10 + "px") // always 10px below the cursor
         // .style("left", d3.event.layerX + 35 + "px") // always 10px to the right of the mouse
     })
