@@ -20,7 +20,8 @@ export const landingSavings = (allData, colors, chartName, graph, y, x) => {
     .style("position", "absolute");
 
   d3.selectAll(`.${chartName}Rect`)
-    .on("mouseover", (d, i, n) => {
+    .on("mouseover", (e, d, i, n) => {
+      console.log("d:", i);
       svg.addText(graph, x(d.year) - 35, -40, `Age ${d.year - 1990}`);
       svg.addLine(graph, x(d.year), x(d.year), -30, 1000);
       svg.addCircle(graph, x(d.year), y(Object.values(d)[1]));
@@ -34,13 +35,15 @@ export const landingSavings = (allData, colors, chartName, graph, y, x) => {
       d3.selectAll(`text`).remove();
       d3.selectAll(`line`).remove();
     })
-    .on("mousemove", (d) => {
-      tooltip.style("opacity", 1).style("top", y(+Object.values(d)[2] + +Object.values(d)[1]) + 10 + "px"); //() => d3.event.layerY - 0 + "px") //
-      // .style("left", () => d3.event.layerX + 20 + "px") // always 10px to the right of the mouse
+    .on("mousemove", (e, d) => {
+      tooltip
+        .style("opacity", 1)
+        .style("top", y(+Object.values(d)[2] + +Object.values(d)[1]) + 10 + "px") //() => d3.event.layerY - 0 + "px") //
+        .style("left", () => e.layerX + 20 + "px");
 
       tooltip2
         .style("opacity", 1) //THIS IS USER 2
-        .style("top", y(Object.values(d)[2]) + 160 + "px"); //() => d3.event.layerY - 0 + "px") //
-      // .style("left", () => d3.event.layerX + 20 + "px") // always 10px to the right of the mouse
+        .style("top", y(Object.values(d)[2]) + 160 + "px") //() => d3.event.layerY - 0 + "px") //
+        .style("left", () => e.layerX + 20 + "px"); // always 10px to the right of the mouse
     });
 };

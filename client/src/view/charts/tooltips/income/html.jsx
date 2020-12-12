@@ -66,7 +66,7 @@ export const incomeTooltipHtml = (d, allData, colors, n) => {
   })[0][0]
 
   const { forcast } = allData
-
+console.log('forcast:', forcast)
   const color = colors[name]
 
   const { year } = d.data

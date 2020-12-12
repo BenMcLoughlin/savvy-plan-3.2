@@ -8,7 +8,7 @@ const initialState = {
   chartEndYear: 2095,
   dualSelectValue: true,
   hasChildren: true,
-  isMarried: true,
+  isMarried: false,
   progress: 0,
   selectedAccount: "tfsa",
   selectedId: "dummy",

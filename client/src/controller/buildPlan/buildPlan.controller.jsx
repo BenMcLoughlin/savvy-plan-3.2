@@ -1,8 +1,7 @@
 import { removeMostRecentStream, getYearRange } from "controller/buildPlan/helpers";
 import { createTripleSliders } from "controller/buildPlan/tripleSelector.creator";
 import { createDualSliders } from "controller/buildPlan/createDualSlider.creator";
-
-import * as u from "model/utils";
+import * as isValid from "model/utils/validate";
 import * as factory from "model/factory";
 import * as format from "model/utils/charts/format";
 import { dummyStream } from "data";
@@ -399,7 +398,7 @@ export const onboardQuestions = (q, user, addText) => {
                 }
               },
               onNext: () => {
-               // if (!ui_reducer.dualSelectValue) set("ui_reducer", { selectedUser: "combined" });
+                // if (!ui_reducer.dualSelectValue) set("ui_reducer", { selectedUser: "combined" });
               },
             },
             ...addText("addAnotherIncome", user),
@@ -558,7 +557,7 @@ export const buttons = (q) => {
           set("ui_reducer", { progress: progress + 1 });
         }
       },
-      valid: u.next(value, q[progress]),
+      valid: isValid.next(value, q[progress]),
       state,
     }),
     exitButton: () => ({

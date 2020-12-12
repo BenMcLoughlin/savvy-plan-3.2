@@ -1,7 +1,7 @@
 import * as d3 from "d3"
 
 export const xYear = (graph, x) => {
-  const xAxisGroup = graph.append("g").attr("transform", `translate(0, 160)`).attr("class", "axis")
+  const xAxisGroup = graph.append("g").attr("transform", `translate(0, 210)`).attr("class", "axis")
 
   var ticks = [2020, 2040, 2060, 2080]
   var tickLabels = ["2020 ", "2040", "2060", "2080"]

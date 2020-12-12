@@ -29,7 +29,7 @@ export const introSavings = (allData, colors, chartName, graph, y, x) => {
     .style("left", x((d) => d.year) - 60 + "px");
 
   d3.selectAll(`.${chartName}Rect`)
-    .on("mouseover", (d, i, n) => {
+    .on("mouseover", (e, d) => {
       svg.addText(graph, x(d.year) - 35, -40, `Age ${d.year - 1990}`);
       svg.addLine(graph, x(d.year), x(d.year), 0, 1000);
       svg.addCircle(graph, x(d.year), y(Object.values(d)[1]));
@@ -40,25 +40,26 @@ export const introSavings = (allData, colors, chartName, graph, y, x) => {
       tooltip3.style("opacity", 1).html(stackedTooltipValuesHtml(d, allData, "user1")).style("opacity", 1);
       // tooltip.transition().duration(200).style("opacity", 1).style("pointer-events", "none")
     })
-    .on("mouseout", (d, i, n) => {
+    .on("mouseout", (e, d, i, n) => {
       d3.selectAll(`circle`).remove();
       d3.selectAll(`text`).remove();
       d3.selectAll(`line`).remove();
-      tooltip.transition().duration(500).style("opacity", 0);
-      tooltip2.transition().duration(5500).style("opacity", 0);
-      tooltip3.transition().duration(5500).style("opacity", 0);
+      // tooltip.transition().duration(500).style("opacity", 0);
+      // tooltip2.transition().duration(5500).style("opacity", 0);
+      // tooltip3.transition().duration(5500).style("opacity", 0);
     })
-    .on("mousemove", (d) => {
+    .on("mousemove", (e, d) => {
       tooltip.style("opacity", 1);
 
       tooltip2
         .style("opacity", 1) //THIS IS USER 2
         .style("top", y(Object.values(d)[2]) + 70 + "px") //() => d3.event.layerY - 0 + "px") //
-        // .style("left", () => d3.event.layerX - 320 + "px") // always 10px to the right of the mouse
+        .style("left", () => e.layerX - 320 + "px") // always 10px to the right of the mouse
         .style("background", "red"); // always 10px to the right of the mouse
-      tooltip3
+     
+        tooltip3
         .style("opacity", 1) //THIS IS USER 1
-        .style("top", y(+Object.values(d)[2] + +Object.values(d)[1]) + 10 + "px"); //() => d3.event.layerY - 0 + "px") //
-      // .style("left", () => d3.event.layerX - 320 + "px") // always 10px to the right of the mouse
+        .style("top", y(+Object.values(d)[2] + +Object.values(d)[1]) + 10 + "px") //() => d3.event.layerY - 0 + "px") //
+        .style("left", () => e.layerX - 320 + "px"); // always 10px to the right of the mouse
     });
 };
