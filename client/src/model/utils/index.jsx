@@ -32,6 +32,9 @@ export { startCase } from "model/utils/helpers/startCase";
 export { sumArray } from "model/utils/helpers/sumArray";
 export { trackFnDuration } from "model/utils/helpers/trackFnDuration";
 
+//Hooks
+export { useWindowResize } from "model/utils/hooks/useWindowResize";
+
 //Methods
 export { forcastMethods } from "model/utils/methods/forcast";
 export { helperMethods } from "model/utils/methods/helpers";

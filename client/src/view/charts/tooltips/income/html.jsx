@@ -58,7 +58,7 @@ const value = `
 font-weight: 700;
 `
 
-export const incomeTooltipHtml = (d, allData, colors, n) => {
+export const incomeTooltipHtml = (d, allData, colors) => {
   const value = d[1] - d[0]
 
   const name = Object.entries(d.data).filter(([k, v]) => {
@@ -66,7 +66,7 @@ export const incomeTooltipHtml = (d, allData, colors, n) => {
   })[0][0]
 
   const { forcast } = allData
-console.log('forcast:', forcast)
+
   const color = colors[name]
 
   const { year } = d.data
@@ -91,7 +91,7 @@ console.log('forcast:', forcast)
     user2TaxableInc = taxableInc
     user2afterTaxInc = afterTaxIncome
   }
-  console.log("income:", income)
+
   return `
                 <div style="${tooltipWrapper}">
                    <div style="${topHeader}">

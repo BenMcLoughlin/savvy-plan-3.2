@@ -31,7 +31,7 @@ export const lifespan = (allData, colors, chartName, graph, y, x) => {
   svg.addText(graph, x(lifeSpan) + 10, y(yearYPosition), `${u.asPercentage(yearYPercentage)} of ${gender}s to live to ${lifeSpan}`);
 
   d3.selectAll(`.${chartName}Rect`)
-    .on("mouseover", (d, i, n) => {
+    .on("mouseover", (e, d, i, n) => {
       svg.addLine(graph, x(d.year), x(d.year), -30, 1000);
       svg.addCircle(graph, x(d.year), y(Object.values(d)[1]));
       svg.addCircle(graph, x(d.year), y(+Object.values(d)[2] + +Object.values(d)[1]));
@@ -45,15 +45,14 @@ export const lifespan = (allData, colors, chartName, graph, y, x) => {
     .on("mouseout", (e, d, i, n) => {
       d3.selectAll("circle").remove();
       d3.selectAll("line").remove();
-      tooltip.transition().duration(500).style("opacity", 0);
-      tooltip2.transition().duration(500).style("opacity", 0);
     })
     .on("mousemove", (e, d) => {
       tooltip
         .style("opacity", 1)
         .style("left", () => e.layerX + 30 + "px")
         .style("top", () => y(Object.values(d)[2]) - 40 + "px");
-
+      tooltip.html(lifespanTooltipHtml(d)).style("opacity", 1);
+      tooltip2.html(lifespanTooltipHtml2(d)).style("opacity", 1);
       tooltip2
         .style("opacity", 1)
         .style("left", () => e.layerX - 40 + "px")

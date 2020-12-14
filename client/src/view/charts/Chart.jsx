@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useRef, useEffect, useMemo } from "react";
+import React, { useRef, useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 import * as draw from "view/charts/drawCharts/index";
 import * as u from "model/utils";
@@ -9,6 +9,9 @@ import * as cards from "view/charts/cards";
 export const Chart = ({ chartName, chartType, state, set, user, getChartData, chartSize, card }) => {
   const { selectedUser } = state.ui_reducer;
   const { user_reducer, stream_reducer, ui_reducer } = state;
+
+  const [width, setWith] = useState(500);
+  const [height, setHeight] = useState(500);
 
   user = user ? user : "user1";
   const inputRef = useRef(null);
@@ -22,13 +25,15 @@ export const Chart = ({ chartName, chartType, state, set, user, getChartData, ch
     return { ...object, ...chartColors };
   };
 
+  const size = u.useWindowResize();
+
   useEffect(() => {
     if (inputRef && inputRef.current) {
-      const width = inputRef.current.offsetWidth;
-      const height = inputRef.current.offsetHeight;
+      setWith(inputRef.current.offsetWidth);
+      setHeight(inputRef.current.offsetHeight);
       draw[chartType](colors(), className, allData, height, state, width);
     }
-  }, [allData, set, selectedUser, state]);
+  }, [allData, set, selectedUser, state, size]);
 
   return (
     <>

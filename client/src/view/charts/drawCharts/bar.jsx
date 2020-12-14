@@ -27,7 +27,7 @@ export const bar = (colors, chartName, allData, height, state, width) => {
 
   const { hideAxis } = state.ui_reducer
 
-  const margin = { top: 100, right: 100, bottom: 70, left: 80 }
+  const margin = { top: height * 0.2, right: width * 0.1, bottom: height * 0.2, left: width * 0.1 };
   const graphHeight = height - margin.top - margin.bottom
   const graphWidth = width - margin.left - margin.right
 
@@ -106,10 +106,10 @@ export const bar = (colors, chartName, allData, height, state, width) => {
 
     // incomeBarTooltip(colors, chartName, allData)
 
-    tooltip[chartName](allData, colors, chartName, graph, y, x)
+    tooltip[chartName](allData, colors, chartName, graph, y, x, height, width)
 
     axis.bubbleY(graph, y)
-    axis.xYear(graph, x)
+    axis.xYear(graph, x, height);
   }
 
   update(data)

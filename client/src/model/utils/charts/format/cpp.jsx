@@ -10,7 +10,8 @@ import _ from "lodash";
  **/
 
 export const cpp = (state, user) => {
-  const { cppPayment } = state.user_reducer[user];
+  console.log('user:', user)
+  const { cppPayment } = state.calc_reducer[user];
   const data = _.range(60, 71).map((age) => ({
     year: age,
     user: user,

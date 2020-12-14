@@ -43,9 +43,10 @@ export const AssumptionsPanel = ({ showAssumptionsPanel, showRetirementTabs }) =
       }, 1000);
     }
     if (showRetirementTabs) {
-      setValue({ retirementTabVisible: true });
+      setValue({ sideTabVisible: true, retirementTabVisible: true });
       setTimeout(() => {
         setValue({
+          sideTabVisible: true,
           retirementTabVisible: true,
           selectedPanelTab: "retirementFactors",
           panelOpen: true,
