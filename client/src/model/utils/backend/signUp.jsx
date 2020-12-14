@@ -22,13 +22,13 @@ export const signUp = async (formData) => {
     const res = await sendRequest(`/api/users/signUp`, "POST", JSON.stringify(formData), {
       "Content-Type": "application/json",
     });
-    if (res) {
-      console.log("res:", res);
-      await sendRequest(`api/stores/createStore`, "POST", JSON.stringify(state), {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + res.token,
-      });
-    }
+    // if (res) {
+    //   console.log("res:", res);
+    //   await sendRequest(`api/stores/createStore`, "POST", JSON.stringify(state), {
+    //     "Content-Type": "application/json",
+    //     Authorization: "Bearer " + res.token,
+    //   });
+    // }
     res && set("auth_reducer", { token: res.token });
   }
 };

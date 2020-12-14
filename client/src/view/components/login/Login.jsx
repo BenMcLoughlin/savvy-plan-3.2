@@ -44,7 +44,7 @@ export const Login = () => {
   if (token) {
     return <Redirect to="/onboarding" />;
   }
-  console.log("formData:", formData);
+console.log('token:', token)
   return (
     <PageSize>
       <Wrapper>

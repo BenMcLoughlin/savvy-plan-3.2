@@ -42,21 +42,21 @@ export const lifespan = (allData, colors, chartName, graph, y, x) => {
       // tooltip.transition().duration(200).style("opacity", 1).style("pointer-events", "none")
       // tooltip2.transition().duration(200).style("opacity", 1).style("pointer-events", "none")
     })
-    .on("mouseout", (d, i, n) => {
+    .on("mouseout", (e, d, i, n) => {
       d3.selectAll("circle").remove();
       d3.selectAll("line").remove();
       tooltip.transition().duration(500).style("opacity", 0);
       tooltip2.transition().duration(500).style("opacity", 0);
     })
-    .on("mousemove", (d) => {
+    .on("mousemove", (e, d) => {
       tooltip
         .style("opacity", 1)
-        // .style("left", () => d3.event.layerX + 30 + "px")
+        .style("left", () => e.layerX + 30 + "px")
         .style("top", () => y(Object.values(d)[2]) - 40 + "px");
 
       tooltip2
         .style("opacity", 1)
-        // .style("left", () => d3.event.layerX - 40 + "px")
+        .style("left", () => e.layerX - 40 + "px")
         .style("top", "0px");
     });
 };
